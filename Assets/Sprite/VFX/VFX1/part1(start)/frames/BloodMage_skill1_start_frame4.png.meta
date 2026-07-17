@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: cee5f35b8b6eb524b848a135851ddf7c
+guid: 3721fe6f7ad7fc849a812fe78053efc9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4372242975121708995
-    second: WhipAttack_0
+      213: -8235073552629725140
+    second: BloodMage_skill1_start_frame4_0
+  - first:
+      213: -2473296089020257820
+    second: BloodMage_skill1_start_frame4_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhipAttack_0
+      name: BloodMage_skill1_start_frame4_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 4
-        width: 84
-        height: 27
+        x: 37
+        y: 41
+        width: 49
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d386c24ed2ca253c0800000000000000
-      internalID: -4372242975121708995
+      spriteID: c288a443c3427bd80800000000000000
+      internalID: -8235073552629725140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodMage_skill1_start_frame4_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 37
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e9a595af461dadd0800000000000000
+      internalID: -2473296089020257820
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WhipAttack_0: -4372242975121708995
+      BloodMage_skill1_start_frame4_0: -8235073552629725140
+      BloodMage_skill1_start_frame4_1: -2473296089020257820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: cee5f35b8b6eb524b848a135851ddf7c
+guid: 0a43d820389017648ade8b1271ff3b39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4372242975121708995
-    second: WhipAttack_0
+      213: 6916797175428445125
+    second: bat_sprite_0
+  - first:
+      213: 2511472288312993179
+    second: bat_sprite_1
+  - first:
+      213: 2624152524236873522
+    second: bat_sprite_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhipAttack_0
+      name: bat_sprite_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 4
-        width: 84
-        height: 27
+        x: 4
+        y: 75
+        width: 24
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d386c24ed2ca253c0800000000000000
-      internalID: -4372242975121708995
+      spriteID: 5c376d062666dff50800000000000000
+      internalID: 6916797175428445125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 43
+        width: 26
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9522286dba8ad220800000000000000
+      internalID: 2511472288312993179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 9
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f559341dcda6420800000000000000
+      internalID: 2624152524236873522
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WhipAttack_0: -4372242975121708995
+      bat_sprite_0: 6916797175428445125
+      bat_sprite_1: 2511472288312993179
+      bat_sprite_2: 2624152524236873522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

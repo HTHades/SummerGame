@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: cee5f35b8b6eb524b848a135851ddf7c
+guid: 8616442e60fbe4b46a3872d319872063
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4372242975121708995
-    second: WhipAttack_0
+      213: -8378189415637538232
+    second: BloodMage_skill1_end_frame4_0
+  - first:
+      213: -8851401085677502824
+    second: BloodMage_skill1_end_frame4_1
+  - first:
+      213: 6717835893405065533
+    second: BloodMage_skill1_end_frame4_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhipAttack_0
+      name: BloodMage_skill1_end_frame4_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 4
-        width: 84
-        height: 27
+        x: 1
+        y: 18
+        width: 120
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d386c24ed2ca253c0800000000000000
-      internalID: -4372242975121708995
+      spriteID: 84aacf3bd11babb80800000000000000
+      internalID: -8378189415637538232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodMage_skill1_end_frame4_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 68
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e7fabfb91892580800000000000000
+      internalID: -8851401085677502824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodMage_skill1_end_frame4_2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 53
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3127c5072c8a3d50800000000000000
+      internalID: 6717835893405065533
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WhipAttack_0: -4372242975121708995
+      BloodMage_skill1_end_frame4_0: -8378189415637538232
+      BloodMage_skill1_end_frame4_1: -8851401085677502824
+      BloodMage_skill1_end_frame4_2: 6717835893405065533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
