@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1389240382769278733}
   - component: {fileID: 3164253453879124378}
   - component: {fileID: -3647562116409598289}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "cay c\xF3 b\xF3ng_1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

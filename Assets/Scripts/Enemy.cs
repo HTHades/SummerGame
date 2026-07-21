@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour , IDamageable
 {
     [SerializeField] Transform targetDestination;
+    [SerializeField] GameObject deathEffect; // Effect to play when enemy dies
     [SerializeField] float speed;
     [SerializeField] float hp =10f;
     [SerializeField] float damage =10f;
@@ -18,13 +19,16 @@ public class Enemy : MonoBehaviour , IDamageable
         Debug.Log($"máu hiện tại{hp}");
         if( hp<=0)
         {
-           Debug.Log("quái chết");
+           Destroy(gameObject);
+           Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
     }
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        targetDestination = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
     
     private void FixedUpdate()
@@ -60,4 +64,8 @@ public class Enemy : MonoBehaviour , IDamageable
             Debug.Log($"tấn công vào player với {damage} máu");
         }
     }
+    // public void SetTarget(GameObject target)
+    // {
+    //     targetDestination = target.transform;
+    // }
 }

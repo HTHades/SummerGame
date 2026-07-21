@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4219781987463665758}
   - component: {fileID: 3411339646602427285}
   - component: {fileID: 7229130598057274566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bat_sprite_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 0}
-  speed: 2
+  deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
+  speed: 0
+  hp: 10
+  damage: 10
 --- !u!95 &7229130598057274566
 Animator:
   serializedVersion: 7

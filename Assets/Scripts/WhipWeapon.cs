@@ -34,10 +34,16 @@ public class WhipWeapon : MonoBehaviour
     {
         targetsInside.RemoveAll(target => target == null);
 
-        foreach (Collider2D target in targetsInside)
+        List<Collider2D> targetsToAttack = new List<Collider2D>(targetsInside);
+
+        foreach (Collider2D target in targetsToAttack)
         {
+            if (target == null) continue;
             IDamageable damageable = target.GetComponent<IDamageable>();
+
+            if (damageable == null) continue;
             Debug.Log($"đã nhận damage: {damage}");
+            
             damageable.TakeDamage(damage);
             
         }
