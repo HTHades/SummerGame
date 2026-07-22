@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3411339646602427285}
   - component: {fileID: 7229130598057274566}
   m_Layer: 6
-  m_Name: bat_sprite_0
+  m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3411339646602427285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,9 +178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 0}
   deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
-  speed: 0
+  speed: 1
   hp: 10
   damage: 10
+  animator: {fileID: 7229130598057274566}
+  useMoveY: 0
+  useMoveX: 0
 --- !u!95 &7229130598057274566
 Animator:
   serializedVersion: 7

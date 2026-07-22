@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Enemy : MonoBehaviour , IDamageable
 {
@@ -8,10 +9,15 @@ public class Enemy : MonoBehaviour , IDamageable
     [SerializeField] float speed;
     [SerializeField] float hp =10f;
     [SerializeField] float damage =10f;
+    [SerializeField] private Animator animator;
+    [SerializeField] private bool useMoveY;
+    [SerializeField] private bool useMoveX;
+
     private float nextAttackTime = 0f;
     private float attackCoolDown = 1f;
-    private float StopDistance = 0.5f;
+    private float StopDistance = 1f;
     private Rigidbody2D rb2d;
+    
 
     public void TakeDamage(float amount)
     {
@@ -28,6 +34,7 @@ public class Enemy : MonoBehaviour , IDamageable
     {
         rb2d = GetComponent<Rigidbody2D>();
         targetDestination = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
 
     }
     
@@ -42,11 +49,13 @@ public class Enemy : MonoBehaviour , IDamageable
       if(  DistanceToPLayer >= StopDistance)
         {
             Vector2 Direction = (targetDestination.position - transform.position).normalized;
-            rb2d.linearVelocity = Direction*speed;
+            rb2d.linearVelocity = Direction * speed;
+            SetAnimation(Direction);
         }
         else
         {
             rb2d.linearVelocity = Vector2.zero;
+            SetAnimation(Vector2.zero);
             if(Time.time >=  nextAttackTime)
             {
                 Attack();
@@ -54,6 +63,23 @@ public class Enemy : MonoBehaviour , IDamageable
             }
         }
     }
+
+    private void SetAnimation(Vector2 Direction)
+    {
+        if(useMoveX)
+        {
+            animator.SetFloat("MoveX", Direction.x);
+        }
+
+        if(useMoveY)
+        {        
+            animator.SetFloat("MoveY", Direction.y);
+        }
+           
+        
+    }
+
+
     private void Attack()
     {
      //  Debug.Log(" bằn bằn bằn");
@@ -64,8 +90,8 @@ public class Enemy : MonoBehaviour , IDamageable
             Debug.Log($"tấn công vào player với {damage} máu");
         }
     }
-    // public void SetTarget(GameObject target)
-    // {
-    //     targetDestination = target.transform;
-    // }
+    public void SetTarget(GameObject target)
+    {
+        targetDestination = target.transform;
+    }
 }
