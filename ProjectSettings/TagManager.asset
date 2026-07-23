@@ -13,7 +13,7 @@ TagManager:
   - UI
   - enemy
   - Evironment
-  - 
+  - player
   - 
   - 
   - 
@@ -40,6 +40,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 4188692733
+    locked: 0
+  - name: object
+    uniqueID: 766347887
+    locked: 0
+  - name: UI
+    uniqueID: 4209333751
     locked: 0
   m_RenderingLayers:
   - Default

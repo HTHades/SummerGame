@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5511500119410150622}
   - component: {fileID: 5366337432636973521}
   - component: {fileID: 3144291371553631233}
-  - component: {fileID: 6721352172150641568}
   - component: {fileID: 5398445281659202457}
   - component: {fileID: 5610819063800898558}
+  - component: {fileID: 6721352172150641568}
   m_Layer: 6
   m_Name: Minotaur  1
   m_TagString: Untagged
@@ -113,26 +113,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6721352172150641568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8042622670179115016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36869536db1c400429c8b9d52bf5c55e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetDestination: {fileID: 0}
-  deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
-  speed: 1
-  hp: 10
-  damage: 10
-  animator: {fileID: 3144291371553631233}
-  useMoveY: 0
-  useMoveX: 1
 --- !u!50 &5398445281659202457
 Rigidbody2D:
   serializedVersion: 5
@@ -206,3 +186,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.6875, y: 1.34375}
   m_EdgeRadius: 0
+--- !u!114 &6721352172150641568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8042622670179115016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36869536db1c400429c8b9d52bf5c55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDestination: {fileID: 0}
+  deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
+  speed: 2
+  hp: 1
+  damage: 10
+  animator: {fileID: 3144291371553631233}
+  useMoveY: 0
+  useMoveX: 1
