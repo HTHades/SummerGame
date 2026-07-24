@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
        
-        rb2d.linearVelocity = movement * speed;
+        rb2d.linearVelocity = new Vector3 (movement.x * speed, movement.y * speed, 0);
        // FlipSprite();
     }
     // private void FlipSprite()

@@ -5,6 +5,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public float gameTime;
+    private bool gameActive;
 
     void Awake()
     {
@@ -17,16 +19,26 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+    void Start()
+    {
+        gameActive = true;
+    }
     void Update()
     {
-        if( Keyboard.current.escapeKey.wasPressedThisFrame)
+        if( gameActive)
         {
-            Pause();
+            gameTime+= Time.deltaTime;
+            UIController.Instance.UpdateTimer(gameTime);
+            if( Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                Pause();
+            }
         }
     }
 
     public void GameOver()
     {
+        gameActive = false;
        StartCoroutine(ShowGameOverScreen());
     }
     IEnumerator ShowGameOverScreen()

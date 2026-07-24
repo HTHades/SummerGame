@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour , IDamageable
     [SerializeField] Transform targetDestination;
     [SerializeField] GameObject deathEffect; // Effect to play when enemy dies
     [SerializeField] float speed;
-    [SerializeField] float hp =10f;
-    [SerializeField] float damage =10f;
+    [SerializeField] float Health;
+    [SerializeField] float damage;
     [SerializeField] private Animator animator;
     [SerializeField] private bool useMoveY;
     [SerializeField] private bool useMoveX;
@@ -19,15 +19,16 @@ public class Enemy : MonoBehaviour , IDamageable
     private Rigidbody2D rb2d;
     private float DistanceToPLayer;
     
-
     public void TakeDamage(float amount)
     {
-        hp -= amount;
-        Debug.Log($"máu hiện tại{hp}");
-        if( hp<=0)
+       
+        Health -= amount;
+        DamageNumberController.Instance.CreateNumber(amount, transform.position);
+        Debug.Log($"máu hiện tại{Health}");
+        if( Health<=0)
         {
-           Destroy(gameObject);
-           Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6721352172150641568}
   m_Layer: 6
   m_Name: Minotaur  1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,8 +201,8 @@ MonoBehaviour:
   targetDestination: {fileID: 0}
   deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
   speed: 2
-  hp: 1
-  damage: 10
+  Health: 100
+  damage: 2
   animator: {fileID: 3144291371553631233}
   useMoveY: 0
   useMoveX: 1
