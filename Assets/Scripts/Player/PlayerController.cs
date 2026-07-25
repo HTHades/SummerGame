@@ -1,14 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterPlayer : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour, IDamageable
 {
-    public static CharacterPlayer Instance;
+    public static PlayerController Instance;
     [SerializeField] public float PlayerMaxHp = 100f;
     [SerializeField] public float PlayerCurrentHp;
-
+    [SerializeField] public int Experience;
+    [SerializeField] public int currentLevel;
+    [SerializeField] private int maxLevel;
+    [SerializeField] public List<int> playerLevels;
     private bool isImmune = true;
     [SerializeField] private float immunityDuration;
     [SerializeField] private float immunityTimer;
+    [SerializeField] public Weapon activeWeapon;
+    
+    
     void Awake()
     {
         if( Instance != null && Instance != this)
@@ -22,8 +29,13 @@ public class CharacterPlayer : MonoBehaviour, IDamageable
     }
     void Start()
     {
+        for( int i = playerLevels.Count; i < maxLevel; i++)
+        {
+            playerLevels.Add(Mathf.CeilToInt(playerLevels[playerLevels.Count-1]*1.1f) + 15);
+        }
         PlayerCurrentHp = PlayerMaxHp; // Khởi tạo máu hiện tại bằng máu tối đa
         UIController.Instance.UpdateHealthSlider(); // Cập nhật thanh máu khi bắt đầu
+        UIController.Instance.UpdateExpSlider();
     }
     void Update()
     {
@@ -54,5 +66,23 @@ public class CharacterPlayer : MonoBehaviour, IDamageable
                 GameManager.Instance.GameOver();
             }
         }
+    }
+    public void GetExperience(int experienceToGet)
+    {
+        Experience += experienceToGet;
+        UIController.Instance.UpdateExpSlider();
+        if( Experience >= playerLevels[currentLevel-1])
+        {
+            LevelUp();
+        }
+    }
+    public void LevelUp()
+    {
+        Experience -= playerLevels[currentLevel-1];
+        currentLevel++;
+        UIController.Instance.UpdateExpSlider();
+        UIController.Instance.levelUpButtons[0].ActivateButton(activeWeapon);
+        UIController.Instance.LevelUpPanelOpen();
+        
     }
 }

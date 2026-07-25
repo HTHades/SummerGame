@@ -10,9 +10,9 @@ public class ArenaWeaponPrefab : MonoBehaviour
     void Start()
     {
        Weapon = GameObject.Find("AreaWeapon").GetComponent<ArenaWeapon>(); 
-       targetSize = Vector3.one * Weapon.range;
+       targetSize = Vector3.one * Weapon.Stats[Weapon.weaponLevel].range;
        transform.localScale = Vector3.zero;
-       Timer = Weapon.duration;
+       Timer = Weapon.Stats[Weapon.weaponLevel].duration;
     }
 
        void Update()
@@ -33,11 +33,11 @@ public class ArenaWeaponPrefab : MonoBehaviour
         Counter -= Time.deltaTime;
         if(Counter <= 0)
         {
-           Counter = Weapon.Speed;
+           Counter = Weapon.Stats[Weapon.weaponLevel].Speed;
            for( int i = 0; i < enemiesInRange.Count ; i++)
             {
                 IDamageable damageable= enemiesInRange[i].GetComponent<IDamageable>();
-                damageable.TakeDamage(Weapon.Damage);
+                damageable.TakeDamage(Weapon.Stats[Weapon.weaponLevel].Damage);
             }
         }
     }

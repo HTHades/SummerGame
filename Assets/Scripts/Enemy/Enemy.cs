@@ -18,15 +18,19 @@ public class Enemy : MonoBehaviour , IDamageable
     private float StopDistance = 1f;
     private Rigidbody2D rb2d;
     private float DistanceToPLayer;
+    [SerializeField] private int ExperienceToGive;
+    [SerializeField] private float pushTime;
+    private float pushCounter;
     
     public void TakeDamage(float amount)
     {
-       
         Health -= amount;
+        pushCounter = pushTime;
         DamageNumberController.Instance.CreateNumber(amount, transform.position);
         Debug.Log($"máu hiện tại{Health}");
         if( Health<=0)
         {
+            PlayerController.Instance.GetExperience(ExperienceToGive);
             Destroy(gameObject);
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
@@ -63,6 +67,19 @@ public class Enemy : MonoBehaviour , IDamageable
                 {
                     Attack();
                     nextAttackTime = Time.time + attackCoolDown;
+                }
+            }
+            // push back
+            if( pushCounter >0)
+            {
+                pushCounter -= Time.deltaTime;
+                if(speed >=0)
+                {
+                    speed = -speed ;
+                }
+                if(pushCounter <=0)
+                {
+                    speed = Mathf.Abs(speed);
                 }
             }
         }

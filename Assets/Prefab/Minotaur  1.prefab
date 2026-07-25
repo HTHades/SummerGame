@@ -201,8 +201,10 @@ MonoBehaviour:
   targetDestination: {fileID: 0}
   deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
   speed: 2
-  Health: 100
+  Health: 10
   damage: 2
   animator: {fileID: 3144291371553631233}
   useMoveY: 0
   useMoveX: 1
+  ExperienceToGive: 10
+  pushTime: 0.3

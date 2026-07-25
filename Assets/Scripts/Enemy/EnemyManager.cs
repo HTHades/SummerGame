@@ -32,9 +32,9 @@ public class EnemyManager : MonoBehaviour
             if( waves[waveIndex].spawnedEnemiesCount >= waves[waveIndex].enemiesPerWave)
             {
                 waves[waveIndex].spawnedEnemiesCount = 0; // Reset số lượng kẻ thù đã xuất hiện trong wave hiện tại
-                if( waves[waveIndex].spawnInterval > 0.3f)
+                if( waves[waveIndex].spawnInterval > 0.15f)
                 {
-                    waves[waveIndex].spawnInterval *= 0.9f; // Giảm spawnTimer để tăng tốc độ xuất hiện kẻ thù
+                    waves[waveIndex].spawnInterval *= 0.8f; // Giảm spawnTimer để tăng tốc độ xuất hiện kẻ thù
                 }
                 waveIndex++; // Chuyển sang wave tiếp theo
             }
