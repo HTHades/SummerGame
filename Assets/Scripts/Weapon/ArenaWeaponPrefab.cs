@@ -13,6 +13,7 @@ public class ArenaWeaponPrefab : MonoBehaviour
        targetSize = Vector3.one * Weapon.Stats[Weapon.weaponLevel].range;
        transform.localScale = Vector3.zero;
        Timer = Weapon.Stats[Weapon.weaponLevel].duration;
+       AudioController.Instance.PlaySound(AudioController.Instance.ArenaWeaponSpawn);
     }
 
        void Update()
@@ -24,9 +25,12 @@ public class ArenaWeaponPrefab : MonoBehaviour
         if( Timer < 0)
         {
             targetSize = Vector3.zero;
+            
             if( transform.localScale.x == 0)
             {
                 Destroy(gameObject);
+                Debug.Log(" rõ ràng là m kêu");
+                AudioController.Instance.PlaySound(AudioController.Instance.ArenaWeaponDespawn);
             }
         }
         // periodic damage

@@ -39,12 +39,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameActive = false;
-       StartCoroutine(ShowGameOverScreen());
+        AudioController.Instance.PlaySound(AudioController.Instance.GameOver);
+        StartCoroutine(ShowGameOverScreen());
     }
     IEnumerator ShowGameOverScreen()
     {
         yield return new WaitForSeconds(1.5f);
-         UIController.Instance.GameOverPanel.SetActive(true);
+        UIController.Instance.GameOverPanel.SetActive(true);
+        
     }
     public void Restart()
     {
@@ -56,11 +58,13 @@ public class GameManager : MonoBehaviour
         {
             UIController.Instance.PausePanel.SetActive(true);
             Time.timeScale = 0f;
+            AudioController.Instance.PlaySound(AudioController.Instance.Pause);
         }
         else
         {
             UIController.Instance.PausePanel.SetActive(false);
             Time.timeScale = 1f;
+            AudioController.Instance.PlaySound(AudioController.Instance.Unpause);
         }
     }
 

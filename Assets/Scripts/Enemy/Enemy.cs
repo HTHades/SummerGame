@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour , IDamageable
             PlayerController.Instance.GetExperience(ExperienceToGive);
             Destroy(gameObject);
             Instantiate(deathEffect, transform.position, Quaternion.identity);
+            AudioController.Instance.PlayEnemyDieSounnd(AudioController.Instance.EnemyDie);
         }
     }
 
