@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour , IDamageable
 
     private float nextAttackTime = 0f;
     private float attackCoolDown = 1f;
-    private float StopDistance = 1f;
+    private float StopDistance = 0.5f;
     private Rigidbody2D rb2d;
     private float DistanceToPLayer;
     [SerializeField] private int ExperienceToGive;

@@ -9,14 +9,30 @@ public class LevelUpButton : MonoBehaviour
     private Weapon assignedWeapon;
     public void ActivateButton( Weapon weapon)
     {
-        weaponName.text = weapon.name;
-        WeaponDescription.text = weapon.Stats[weapon.weaponLevel].WeaponDescription;
+        if( weapon.gameObject.activeSelf == true)
+        {
+            weaponName.text = weapon.name;
+            WeaponDescription.text = weapon.Stats[weapon.weaponLevel].WeaponDescription;
+        }
+        else
+        {
+            weaponName.text = "NEW" +" " + weapon.name;
+            WeaponDescription.text = weapon.basicDescription;
+        }
         WeaponIcon.sprite = weapon.weaponImage;
         assignedWeapon = weapon;
     }
     public void SelectUpgrade()
     {
-        assignedWeapon.LevelUp();
+        if(assignedWeapon.gameObject.activeSelf == true)
+        {
+            assignedWeapon.LevelUpWeapon();
+        }
+        else
+        {
+            PlayerController.Instance.ActiveWeapon(assignedWeapon);
+        }
+        
         AudioController.Instance.PlaySound(AudioController.Instance.SelectUpgrade);
         UIController.Instance.LevelUpPanelClose();
     }

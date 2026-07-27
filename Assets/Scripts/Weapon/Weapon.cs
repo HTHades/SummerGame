@@ -6,11 +6,17 @@ public class Weapon : MonoBehaviour
     public int weaponLevel;
     public List<WeaponStats> Stats;
     public Sprite weaponImage;
-    public void LevelUp()
+    public string basicDescription;
+    public void LevelUpWeapon()
     {
         if(weaponLevel < Stats.Count -1)
         {
             weaponLevel++;
+            if(weaponLevel >= Stats.Count -1)
+            {
+                PlayerController.Instance.MaxLevelWeapons.Add(this);
+                PlayerController.Instance.ActiveWeapons.Remove(this);
+            }
         }
     }
 }
@@ -23,5 +29,6 @@ public class WeaponStats
      public float Damage;
     public float range;
     public float Speed;
+    public float amount;
     public string WeaponDescription;
 }

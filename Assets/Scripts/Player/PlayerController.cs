@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
@@ -6,10 +8,14 @@ public class PlayerController : MonoBehaviour, IDamageable
     public static PlayerController Instance;
     [SerializeField] public float PlayerMaxHp = 100f;
     [SerializeField] public float PlayerCurrentHp;
-    [SerializeField] public int Experience;
-    [SerializeField] public int currentLevel;
-    [SerializeField] private int maxLevel;
+    public int Experience;
+    public int currentLevel;
+    public int maxLevel;
     [SerializeField] public List<int> playerLevels;
+    [SerializeField] public List<Weapon> ActiveWeapons;
+    [SerializeField] public List<Weapon> InactiveWeapons;
+    [SerializeField] private List<Weapon> UpgradeableWeapons;
+    public List<Weapon> MaxLevelWeapons;
     private bool isImmune = true;
     [SerializeField] private float immunityDuration;
     [SerializeField] private float immunityTimer;
@@ -36,6 +42,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         PlayerCurrentHp = PlayerMaxHp; // Khởi tạo máu hiện tại bằng máu tối đa
         UIController.Instance.UpdateHealthSlider(); // Cập nhật thanh máu khi bắt đầu
         UIController.Instance.UpdateExpSlider();
+        AddWeapon(Random.Range(0,InactiveWeapons.Count));
     }
     void Update()
     {
@@ -81,8 +88,42 @@ public class PlayerController : MonoBehaviour, IDamageable
         Experience -= playerLevels[currentLevel-1];
         currentLevel++;
         UIController.Instance.UpdateExpSlider();
-        UIController.Instance.levelUpButtons[0].ActivateButton(activeWeapon);
+
+       // UIController.Instance.levelUpButtons[0].ActivateButton(activeWeapon);
+       UpgradeableWeapons.Clear();
+       if( ActiveWeapons.Count > 0)
+        {
+            UpgradeableWeapons.AddRange(ActiveWeapons);
+        }
+        if( InactiveWeapons.Count > 0)
+        {
+            UpgradeableWeapons.AddRange(InactiveWeapons);
+        }
+        for( int i = 0; i < UIController.Instance.levelUpButtons.Length; i++)
+        {
+            if( UpgradeableWeapons.ElementAtOrDefault(i) != null)
+            {
+                UIController.Instance.levelUpButtons[i].ActivateButton(UpgradeableWeapons[i]);
+                UIController.Instance.levelUpButtons[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                UIController.Instance.levelUpButtons[i].gameObject.SetActive(false);
+            }
+        }
         UIController.Instance.LevelUpPanelOpen();
         
+    }
+    public void AddWeapon(int index)
+    {
+        ActiveWeapons.Add(InactiveWeapons[index]);
+        InactiveWeapons[index].gameObject.SetActive(true);
+        InactiveWeapons.RemoveAt(index);
+    }
+    public void ActiveWeapon( Weapon weapon)
+    {
+        weapon.gameObject.SetActive(true);
+        ActiveWeapons.Add(weapon);
+        InactiveWeapons.Remove(weapon);
     }
 }
