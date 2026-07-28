@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ShootWeaponPrefab : MonoBehaviour
 {
-    private ShootWeapon weapon;
+    [SerializeField] private ShootWeapon weapon;
     private Rigidbody2D rb;
     private Vector3 direction;
     private float duration;

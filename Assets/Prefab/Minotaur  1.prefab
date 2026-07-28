@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 0}
   deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
-  speed: 1
+  speed: 0.5
   Health: 2
   damage: 2
   animator: {fileID: 3144291371553631233}
