@@ -13,6 +13,7 @@ public class SpinWeaponPrefab : MonoBehaviour
         TargetSize = Vector3.one;
         transform.localScale = Vector3.zero;
         projectile.transform.localPosition = new Vector3(0f, weapon.Stats[weapon.weaponLevel].range, 0f);
+        AudioController.Instance.PlaySound(AudioController.Instance.SpinWeaponSpawn);
     }
     void Update()
     {

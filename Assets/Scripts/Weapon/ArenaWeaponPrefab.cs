@@ -29,7 +29,6 @@ public class ArenaWeaponPrefab : MonoBehaviour
             if( transform.localScale.x == 0)
             {
                 Destroy(gameObject);
-                Debug.Log(" rõ ràng là m kêu");
                 AudioController.Instance.PlaySound(AudioController.Instance.ArenaWeaponDespawn);
             }
         }

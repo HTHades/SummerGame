@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         if( UIController.Instance.PausePanel.activeSelf == false && UIController.Instance.GameOverPanel.activeSelf == false)
         {
-            UIController.Instance.PausePanel.SetActive(true);
+            UIController.Instance.PausePanel.SetActive(true); 
             Time.timeScale = 0f;
             AudioController.Instance.PlaySound(AudioController.Instance.Pause);
         }
@@ -65,6 +65,10 @@ public class GameManager : MonoBehaviour
             UIController.Instance.PausePanel.SetActive(false);
             Time.timeScale = 1f;
             AudioController.Instance.PlaySound(AudioController.Instance.Unpause);
+        }
+        if( UIController.Instance.LevelUpPanel.activeSelf)
+        {
+            Time.timeScale = 0f;
         }
     }
 

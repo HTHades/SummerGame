@@ -15,6 +15,7 @@ public class ShootWeaponPrefab : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         float randomAngle = Random.Range(-1f, 1f);
         rb.linearVelocity = new Vector3(direction.x * weapon.Stats[weapon.weaponLevel].Speed + randomAngle, direction.y * weapon.Stats[weapon.weaponLevel].Speed + randomAngle);
+        AudioController.Instance.PlaySound(AudioController.Instance.ShootWeaponSpawn);
     }
     void Update()
     {
@@ -25,6 +26,7 @@ public class ShootWeaponPrefab : MonoBehaviour
             if( transform.localScale.x == 0f)
             {
               Destroy(gameObject);   
+              AudioController.Instance.PlaySound(AudioController.Instance.ShootWeaponDespawn);
             }
         }
     }

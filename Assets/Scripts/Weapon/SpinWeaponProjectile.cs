@@ -8,6 +8,10 @@ public class SpinWeaponProjectile : MonoBehaviour
     {
         weapon = GameObject.Find("SpinWeapon").GetComponent<SpinWeapon>();
     }
+    void Update()
+    {
+        transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z + (90 * Time.deltaTime* weapon.Stats[weapon.weaponLevel].Speed));
+    }
 
     private void OnTriggerEnter2D(Collider2D collider){
         if (collider.gameObject.CompareTag("Enemy")){
@@ -15,4 +19,5 @@ public class SpinWeaponProjectile : MonoBehaviour
             enemy.TakeDamage(weapon.Stats[weapon.weaponLevel].Damage);
         }
     }
+    
 }

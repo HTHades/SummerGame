@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -892966223
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2991773290986861209, guid: 8aa32bb9c0c10fb469e6814b77cdd335, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -201,10 +201,10 @@ MonoBehaviour:
   targetDestination: {fileID: 0}
   deathEffect: {fileID: 8884652677532625711, guid: d77b8bfb24b49b846997c75f73d07bea, type: 3}
   speed: 0.5
-  Health: 2
-  damage: 2
+  Health: 30
+  damage: 5
   animator: {fileID: 3144291371553631233}
   useMoveY: 0
   useMoveX: 1
-  ExperienceToGive: 2
+  ExperienceToGive: 30
   pushTime: 0.3

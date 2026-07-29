@@ -9,6 +9,10 @@ public class AudioController : MonoBehaviour
     public AudioSource SelectUpgrade;
     public AudioSource ArenaWeaponSpawn;
     public AudioSource ArenaWeaponDespawn;
+    public AudioSource SpinWeaponSpawn;
+    //public AudioSource SpinWeaponDespawn;
+    public AudioSource ShootWeaponSpawn;
+    public AudioSource ShootWeaponDespawn;
     public AudioSource GameOver;
 
     void Awake()
@@ -31,7 +35,7 @@ public class AudioController : MonoBehaviour
     // trick using pitch
     public void PlayEnemyDieSounnd( AudioSource sound)
     {
-        sound.pitch = Random.Range(0.7f, 1.3f);
+        sound.pitch = Random.Range(0.5f, 1.5f);
         sound.Stop();
         sound.Play();
     }

@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         for( int i = playerLevels.Count; i < maxLevel; i++)
         {
-            playerLevels.Add(Mathf.CeilToInt(playerLevels[playerLevels.Count-1]*1.1f) + 15);
+            playerLevels.Add(Mathf.CeilToInt(playerLevels[playerLevels.Count-1]*1.9f));
         }
         PlayerCurrentHp = PlayerMaxHp; // Khởi tạo máu hiện tại bằng máu tối đa
         UIController.Instance.UpdateHealthSlider(); // Cập nhật thanh máu khi bắt đầu
@@ -125,5 +125,13 @@ public class PlayerController : MonoBehaviour, IDamageable
         weapon.gameObject.SetActive(true);
         ActiveWeapons.Add(weapon);
         InactiveWeapons.Remove(weapon);
+    }
+    public void IncreaseMaxHp(int value)
+    {
+        PlayerMaxHp += value;
+        PlayerCurrentHp = PlayerMaxHp;
+        UIController.Instance.UpdateHealthSlider();
+        UIController.Instance.LevelUpPanelClose();
+        AudioController.Instance.PlaySound(AudioController.Instance.SelectUpgrade);
     }
 }
