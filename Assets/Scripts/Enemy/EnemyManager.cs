@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private Vector2 spawnArena; // Điểm xuất hiện của kẻ thù
-    [SerializeField] private GameObject player; // Tham chiếu đến Transform của player
+    [SerializeField] private Transform player; // Tham chiếu đến Transform của player
     [System.Serializable]
     public class Wave
     {
@@ -43,7 +43,6 @@ public class EnemyManager : MonoBehaviour
                 waveIndex = 0; // Reset waveIndex nếu vượt quá số lượng wave
             }
         }
-        
 
     }
 

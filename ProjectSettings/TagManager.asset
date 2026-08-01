@@ -54,6 +54,9 @@ TagManager:
   - name: object
     uniqueID: 766347887
     locked: 0
+  - name: UI Damage Number
+    uniqueID: 2043360541
+    locked: 0
   - name: UI
     uniqueID: 4209333751
     locked: 0

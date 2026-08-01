@@ -42,15 +42,10 @@ public class GameManager : MonoBehaviour
         AudioController.Instance.PlaySound(AudioController.Instance.GameOver);
         StartCoroutine(ShowGameOverScreen());
     }
-    IEnumerator ShowGameOverScreen()
-    {
-        yield return new WaitForSeconds(1.5f);
-        UIController.Instance.GameOverPanel.SetActive(true);
-        
-    }
+   
     public void Restart()
     {
-        SceneManager.LoadScene("Game");
+        StartCoroutine(LoadGameDelay());
     }
     public void Pause()
     {
@@ -79,7 +74,23 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-      SceneManager.LoadScene("MainMenu");
-      Time.timeScale = 1f;   
+       StartCoroutine(LoadMainMenuDelay());   
+    }
+     IEnumerator ShowGameOverScreen()
+    {
+        yield return new WaitForSeconds(1.5f);
+        UIController.Instance.GameOverPanel.SetActive(true);
+        
+    }
+    IEnumerator LoadGameDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Game");
+    }
+    IEnumerator LoadMainMenuDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f; 
     }
 }

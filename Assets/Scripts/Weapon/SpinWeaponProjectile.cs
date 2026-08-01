@@ -14,9 +14,9 @@ public class SpinWeaponProjectile : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider){
-        if (collider.gameObject.CompareTag("Enemy")){
-            Enemy enemy = collider.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(weapon.Stats[weapon.weaponLevel].Damage);
+      IDamageable damageable = collider.gameObject.GetComponentInParent<IDamageable>();
+        if(damageable != null){
+            damageable.TakeDamage(weapon.Stats[weapon.weaponLevel].Damage);
         }
     }
     

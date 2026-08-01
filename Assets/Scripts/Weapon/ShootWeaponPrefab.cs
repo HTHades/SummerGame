@@ -32,10 +32,10 @@ public class ShootWeaponPrefab : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if( collision.gameObject.CompareTag("Enemy"))
+        IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
+        if(damageable != null)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(weapon.Stats[weapon.weaponLevel].Damage);
+            damageable.TakeDamage(weapon.Stats[weapon.weaponLevel].Damage);
         }
     }
 }

@@ -277,7 +277,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 685504348101807114, guid: 62d40b36af1c8cf498454010d147383f, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4ba634b293543c04ba7e483e877ecb9b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -513,17 +513,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnArena: {x: 8, y: 5}
-  player: {fileID: 1228509692}
+  player: {fileID: 1228509697}
   waves:
+  - enemyPrefab: {fileID: 1206722729079532786, guid: b948f8eba6ad9184aa9ec6aacd67dbf7, type: 3}
+    spawnTimer: 0
+    spawnInterval: 2
+    enemiesPerWave: 40
+    spawnedEnemiesCount: 0
   - enemyPrefab: {fileID: 4888250493590111316, guid: a76980857dfbca94d92977866f90dc07, type: 3}
     spawnTimer: 0
-    spawnInterval: 1
-    enemiesPerWave: 5
+    spawnInterval: 2
+    enemiesPerWave: 40
     spawnedEnemiesCount: 0
   - enemyPrefab: {fileID: 8042622670179115016, guid: 1e36760e313186140830898c0d4db6b2, type: 3}
     spawnTimer: 0
-    spawnInterval: 4
-    enemiesPerWave: 2
+    spawnInterval: 5
+    enemiesPerWave: 5
     spawnedEnemiesCount: 0
   waveIndex: 0
 --- !u!4 &228581203
@@ -1541,7 +1546,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -85633545
+  m_SortingLayerID: 2043360541
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &481025294
@@ -2473,7 +2478,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000fd60aaf96f8aad2df755e5faadfb8de2b16ac6ca
+  m_ApplyToSortingLayers: 00000000fd60aaf96f8aad2df755e5faadfb8de2b16ac6ca1d35cb79
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -4268,7 +4273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0700073, y: 197}
+  m_AnchoredPosition: {x: -1.0700684, y: 197}
   m_SizeDelta: {x: -33.15, y: -326.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063766772

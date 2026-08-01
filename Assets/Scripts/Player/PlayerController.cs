@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         for( int i = playerLevels.Count; i < maxLevel; i++)
         {
-            playerLevels.Add(Mathf.CeilToInt(playerLevels[playerLevels.Count-1]*1.9f));
+            playerLevels.Add(Mathf.CeilToInt(playerLevels[playerLevels.Count-1]*1.5f + 30));
         }
         PlayerCurrentHp = PlayerMaxHp; // Khởi tạo máu hiện tại bằng máu tối đa
         UIController.Instance.UpdateHealthSlider(); // Cập nhật thanh máu khi bắt đầu
