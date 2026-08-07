@@ -39,58 +39,58 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameActive = false;
-        AudioController.Instance.PlaySound(AudioController.Instance.GameOver);
+        AudioController.Instance.PlaySound(SoundType.GameOver);
         StartCoroutine(ShowGameOverScreen());
     }
    
     public void Restart()
     {
-        StartCoroutine(LoadGameDelay());
-    }
-    public void Pause()
-    {
-        if( UIController.Instance.PausePanel.activeSelf == false && UIController.Instance.GameOverPanel.activeSelf == false)
-        {
-            UIController.Instance.PausePanel.SetActive(true); 
-            Time.timeScale = 0f;
-            AudioController.Instance.PlaySound(AudioController.Instance.Pause);
-        }
-        else
-        {
-            UIController.Instance.PausePanel.SetActive(false);
-            Time.timeScale = 1f;
-            AudioController.Instance.PlaySound(AudioController.Instance.Unpause);
-        }
-        if( UIController.Instance.LevelUpPanel.activeSelf)
-        {
-            Time.timeScale = 0f;
-        }
+        StartCoroutine(LoadSceneDelay("Game", 1.5f));
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
+    public void Pause()
+    {
+        if (UIController.Instance.IsGameOverPanelOpen)
+        {
+            return;
+        }
+        bool isOpening = !UIController.Instance.IsPausePanelOpen;
+        UIController.Instance.SetPausePanel(isOpening);
+        RefreshTimeScale();
+    }
 
     public void GoToMainMenu()
     {
-       StartCoroutine(LoadMainMenuDelay());   
+        Debug.Log(" đã nhấn");
+       StartCoroutine(LoadSceneDelay("MainMenu", 1.5f));   
+    }
+    public void GoToMainMenuFromPause()
+    {
+        StartCoroutine(LoadSceneDelay("MainMenu", 1.5f));
     }
      IEnumerator ShowGameOverScreen()
     {
         yield return new WaitForSeconds(1.5f);
-        UIController.Instance.GameOverPanel.SetActive(true);
+        UIController.Instance.SetGameOverPanel(true);
+        RefreshTimeScale();
         
     }
-    IEnumerator LoadGameDelay()
+    IEnumerator LoadSceneDelay( string sceneName, float delay)
     {
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("Game");
+        yield return new WaitForSecondsRealtime(delay);
+        Time.timeScale = 1f; // Reset time scale before loading the scene
+        SceneManager.LoadScene(sceneName);
     }
-    IEnumerator LoadMainMenuDelay()
+    public void RefreshTimeScale()
     {
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1f; 
+        bool shouldPause = UIController.Instance.IsPausePanelOpen || 
+                     UIController.Instance.IsLevelUpPanelOpen ||
+                     UIController.Instance.IsGameOverPanelOpen;
+        Time.timeScale = shouldPause ? 0f : 1f;
     }
+   
 }

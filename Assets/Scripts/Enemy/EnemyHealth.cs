@@ -8,7 +8,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private float knockbackForce = 2f;
     [SerializeField] private float knockbackDuration = 0.2f;
     [SerializeField] private int experrienceToGive = 10;
+    [SerializeField] private PlayerExperience playerExperience;
     private bool isDead;
+    private Transform player;
 
     [SerializeField] private GameObject deathEffect;
     private EnemyMovement enemyMovement;
@@ -25,7 +27,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
         currentHealth -= amount;
         ShowDamageNumber(amount);
-        ApplyKnockBack();
+        RequestKnockBack();
         if( currentHealth <=0)
         {
             Die();
@@ -42,15 +44,20 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             return;
         }
         isDead = true;
-        PlayerController.Instance.GetExperience(experrienceToGive);
+        playerExperience.AddExperience(experrienceToGive);
         Instantiate(deathEffect, transform.position, Quaternion.identity);
-        AudioController.Instance.PlayEnemyDieSounnd(AudioController.Instance.EnemyDie);
+        AudioController.Instance.PlaySound(SoundType.EnemyDeath);
         Destroy(gameObject);
     }
-    private void ApplyKnockBack()
+    private void RequestKnockBack() // tính hướng đẩy, lực, thời gian 
     {
-        Vector2 Direction = transform.position - PlayerController.Instance.transform.position;
+        Vector2 Direction = transform.position - player.position;
         enemyMovement.ApplyKnockBack( Direction, knockbackForce, knockbackDuration);
+    }
+    public void SetPlayerTransform(Transform playerTransform)
+    {
+        player = playerTransform;
+        playerExperience =playerTransform.GetComponent<PlayerExperience>();
     }
     
 }

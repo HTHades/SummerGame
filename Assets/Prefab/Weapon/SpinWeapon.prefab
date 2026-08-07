@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff779133a8668004ab3eefa5e525a4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7811572375967873505}
+  projectile: {fileID: 3975298113819481551}
+  resizeSpeed: 1
+  baseRotationSpeed: 90
 --- !u!1 &7811572375967873505
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,11 +11,13 @@ public class Enemy : MonoBehaviour
     private EnemyMovement enemyMovement;
     private EnemyAttack enemyAttack;
     private EnemyAnimation enemyAnimation;
+    private EnemyHealth enemyHealth;
     private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         enemyAttack = GetComponent<EnemyAttack>();
         enemyAnimation = GetComponent<EnemyAnimation>(); 
+        enemyHealth = GetComponent<EnemyHealth>();
     }
     private void FixedUpdate()
     {
@@ -36,6 +38,7 @@ public class Enemy : MonoBehaviour
     public void SetTarget( Transform target)
     {
         player = target;
+        enemyHealth.SetPlayerTransform(target);
     }
 
 }

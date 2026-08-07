@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         direction = Vector2.zero;
         rb.linearVelocity = Vector2.zero;
     }
-    public void ApplyKnockBack( Vector2 direction, float force, float duration)
+    public void ApplyKnockBack( Vector2 direction, float force, float duration) // nhận thông tin từ EnemyHealth
     {
        knockbackDirection = direction.normalized;
        knockbackForce = force;

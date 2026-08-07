@@ -8,11 +8,32 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text PlayerHealthText;
     [SerializeField] private Slider PlayerExpSlider;
     [SerializeField] private TMP_Text PlayerExpText;
-    public GameObject GameOverPanel;
-    public GameObject PausePanel;
-    public GameObject LevelUpPanel;
+    [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject PausePanel;
+    [SerializeField] private GameObject LevelUpPanel;
+    public bool IsGameOverPanelOpen
+    {
+        get
+        {
+            return GameOverPanel.activeSelf;
+        }
+    }
+    public bool IsPausePanelOpen
+    {
+        get
+        {
+            return PausePanel.activeSelf;
+        }
+    }
+    public bool IsLevelUpPanelOpen
+    {
+        get
+        {
+          return LevelUpPanel.activeSelf;   
+        }
+    }
     [SerializeField] private TMP_Text timerText;
-    public LevelUpButton[] levelUpButtons;
+    
     void Awake()
     {
         if( Instance != null && Instance != this)
@@ -24,17 +45,17 @@ public class UIController : MonoBehaviour
             Instance = this;
         }
     }
-    public void UpdateHealthSlider()
+    public void UpdateHealthSlider(float currentHp, float maxHp)
     {
-        PlayerHealthSlider.maxValue = PlayerController.Instance.PlayerMaxHp;
-        PlayerHealthSlider.value = PlayerController.Instance.PlayerCurrentHp;
-        PlayerHealthText.text = PlayerHealthSlider.value + " / " + PlayerHealthSlider.maxValue;
+        PlayerHealthSlider.maxValue = maxHp;
+        PlayerHealthSlider.value = currentHp;
+        PlayerHealthText.text = currentHp + " / " + maxHp;
     }
-    public void UpdateExpSlider()
+    public void UpdateExpSlider( int currentExperience, int requiredExperience)
     {
-        PlayerExpSlider.maxValue = PlayerController.Instance.playerLevels[PlayerController.Instance.currentLevel -1];
-        PlayerExpSlider.value = PlayerController.Instance.Experience;
-        PlayerExpText.text = PlayerExpSlider.value + "/" + PlayerExpSlider.maxValue;
+        PlayerExpSlider.maxValue = requiredExperience;
+        PlayerExpSlider.value = currentExperience;
+        PlayerExpText.text = currentExperience + "/" + requiredExperience;
     }
 
     public void UpdateTimer(float time)
@@ -46,11 +67,18 @@ public class UIController : MonoBehaviour
     public void LevelUpPanelOpen()
     {
         LevelUpPanel.SetActive(true);
-        Time.timeScale = 0f;  
     }
     public void LevelUpPanelClose()
     {
         LevelUpPanel.SetActive(false);
-        Time.timeScale = 1f;  
     }
+    public void SetPausePanel( bool isOpen)
+    {
+        PausePanel.SetActive(isOpen);
+    }
+    public void SetGameOverPanel(bool isOpen)
+    {
+        GameOverPanel.SetActive(isOpen);
+    }
+
 }
