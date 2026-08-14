@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private int weaponLevel;
-    private List<WeaponStats> Stats;
-    private Sprite weaponImage;
-    private string basicDescription;
+    [SerializeField] private int weaponLevel;
+    [SerializeField] private List<WeaponStats> Stats;
+    [SerializeField] private Sprite weaponImage;
+    [SerializeField] private string basicDescription;
     public Sprite WeaponImage
     {
         get

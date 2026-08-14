@@ -15,8 +15,8 @@ TagManager:
   - enemy
   - Evironment
   - player
-  - 
-  - 
+  - FireballProjectile
+  - Object
   - 
   - 
   - 
@@ -61,7 +61,7 @@ TagManager:
     uniqueID: 2043360541
     locked: 0
   - name: UI
-    uniqueID: 4209333751
+    uniqueID: 1945699729
     locked: 0
   m_RenderingLayers:
   - Default

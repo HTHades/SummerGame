@@ -29,8 +29,10 @@ public class WorldScrolling : MonoBehaviour
     private void Update()
     {
         // 1. Dùng Mathf.FloorToInt để tính toạ độ thô, giúp fix lỗi khi nhân vật đi vào vùng toạ độ âm
-        playerTilePosition.x = Mathf.FloorToInt(playerTransform.position.x / tileSize);
-        playerTilePosition.y = Mathf.FloorToInt(playerTransform.position.y / tileSize);
+        playerTilePosition.x = Mathf.FloorToInt((playerTransform.position.x + tileSize / 2f) / tileSize);
+
+        playerTilePosition.y = Mathf.FloorToInt((playerTransform.position.y + tileSize / 2f) /
+        tileSize);
         
         // 3. Xử lý update map lần đầu tiên ở frame Update đầu tiên (lúc này các TerrainTile đã được Add xong)
         if (!isInitialized)
@@ -56,8 +58,15 @@ public class WorldScrolling : MonoBehaviour
         {
             for (int pov_y = -povOffsetY; pov_y <= povOffsetY; pov_y++)
             {
-                int tileToUpdate_x = CalculatePositionOnGrid(playerTilePosition.x + pov_x, true);
-                int tileToUpdate_y = CalculatePositionOnGrid(playerTilePosition.y + pov_y, false);
+                int tileToUpdate_x =
+                    CalculatePositionOnGrid(
+                        playerTilePosition.x + pov_x + povOffsetX,
+                        true);
+
+                int tileToUpdate_y =
+                    CalculatePositionOnGrid(
+                        playerTilePosition.y + pov_y + povOffsetY,
+                        false);
                 
                 GameObject tile = terrainTiles[tileToUpdate_x, tileToUpdate_y];
                 
