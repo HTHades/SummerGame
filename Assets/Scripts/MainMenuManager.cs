@@ -5,7 +5,7 @@ public class MainMenuManager : MonoBehaviour
 {
    public void NewGame()
     {
-        StartCoroutine(DelayLoadScene("Game", 0.5f));
+        StartCoroutine(DelayLoadScene("Game", 1.5f));
     }
     public void Quit()
     {

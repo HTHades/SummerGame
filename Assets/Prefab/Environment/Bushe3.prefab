@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7759678098472638621}
   - component: {fileID: 9071749520989918944}
   - component: {fileID: 2091766830746735124}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bushe3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

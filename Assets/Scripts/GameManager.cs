@@ -66,11 +66,11 @@ public class GameManager : MonoBehaviour
     public void GoToMainMenu()
     {
         Debug.Log(" đã nhấn");
-       StartCoroutine(LoadSceneDelay("MainMenu", 1.5f));   
+       StartCoroutine(LoadSceneDelay("MainMenu", 0.5f));   
     }
     public void GoToMainMenuFromPause()
     {
-        StartCoroutine(LoadSceneDelay("MainMenu", 1.5f));
+        StartCoroutine(LoadSceneDelay("MainMenu", 0.5f));
     }
      IEnumerator ShowGameOverScreen()
     {

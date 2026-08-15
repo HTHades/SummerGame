@@ -1721,7 +1721,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Survival
+  m_text: Endless Havoc
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e6df4e755438b3f4ca08cd3c53fe5e7c, type: 2}
   m_sharedMaterial: {fileID: 7718710633793237972, guid: e6df4e755438b3f4ca08cd3c53fe5e7c, type: 2}
@@ -1748,13 +1748,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 300
+  m_fontSize: 237.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 300
-  m_fontStyle: 0
+  m_fontStyle: 3
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
